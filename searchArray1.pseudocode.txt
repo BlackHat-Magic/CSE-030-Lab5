@@ -1,0 +1,30 @@
+function binarySearch(array, array_size, key)
+    small_size_one <- array_size / 2;
+    small_size_two <- array_size / 2 + array_size % 2;
+    
+    IF array[small_size_one] = key THEN:
+        return(small_size_one);
+    ELSE IF array_size < 2 THEN:
+        int result = -1;
+        return(result);
+    ELSE IF array[small_size_one] > key THEN:
+        string newarray[small_size_two];
+        FOR i in range(small_size_two) DO:
+            newarray[i] <- array[i]
+        ENDFOR
+        return(binarySearch(newarray, small_size_two, key));
+    ELSE THEN:
+        string newarray[small_size_two];
+        FOR i in range(small_size_two) {
+            // i starts at small_size two and increments to array_size;
+            // idk how to do this in pseudocode
+            // it's clear in C++
+            newarray[i] <- array[i];
+        ENDFOR
+        result <- forwardBinary(newarray, small_size_two, key);
+        IF result = -1 THEN
+            return(result);
+        ELSE THEN:
+            return(small_size_one + result);
+        ENDIF
+    ENDIF

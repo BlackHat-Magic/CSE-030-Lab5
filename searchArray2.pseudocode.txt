@@ -1,0 +1,17 @@
+FUNCTION binarySearch(array, array_size, key) {
+    min <- 0;
+    max <- array_size - 1;
+
+    WHILE min <= max DO:
+        middle <- floor(min + (max - min) / 2);
+        IF array[middle] = key THEN:
+            return(middle);
+        ELSE IF array[middle] > key THEN:
+            max <- middle - 1;
+        ELSE THEN:
+            min <- middle + 1;
+        ENDIF
+    ENDWHILE
+    
+    return(-1);
+}
